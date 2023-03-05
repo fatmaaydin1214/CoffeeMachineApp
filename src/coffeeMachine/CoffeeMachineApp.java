@@ -12,7 +12,7 @@ public class CoffeeMachineApp {
     public static void coffeeTypes() {
 
         System.out.println("1-Americano\n2-Cappuccino\n3-Espresso\n4-Latte\n5-Mocha" +
-                "\n6-Macchiato\n7-Decaf\nLutfen istediginiz kahvenin kodunu giriniz");
+                "\n6-Macchiato\n7-Decaf\nPlease enter the code of the coffee you want");
 
         Scanner scan = new Scanner(System.in);
 
@@ -29,17 +29,17 @@ public class CoffeeMachineApp {
                 price = 1.5;
                 break;
             default:
-                System.out.println("Gecersiz kod girisi");
+                System.out.println("Invalid code entry");
 
         }
-        System.out.println("1.sekerli\n" +
-                "2. orta sekerli\n" +
-                "3. sekersiz\n" +
-                "seker miktari icin kodu giriniz");
+        System.out.println("1.Sweet-lot\n" +
+                "2. Sweet-medium\n" +
+                "3. Sugar-less\n" +
+                "Please enter the code for sugar amount");
 
-        int sekerMiktari = scan.nextInt();
+        int sugarAmount = scan.nextInt();
 
-        switch (sekerMiktari) {
+        switch (sugarAmount) {
             case 1:
                 break;
             case 2:
@@ -47,12 +47,12 @@ public class CoffeeMachineApp {
             case 3:
                 break;
             default:
-                System.out.println("Gecersiz giris");
+                System.out.println("invalid code entry");
         }
 
 
         System.out.println("S-Small\nM-Medium\nL-Large" +
-                "\nLutfen bardak boyunu secmek icin S,M,L giriniz");
+                "\nPlease enter S,M or L to choose the size");
 
         char size = scan.next().charAt(0);
         double sizePrice = 0;
@@ -61,32 +61,32 @@ public class CoffeeMachineApp {
         switch (size) {
             case 'S':
                 sizePrice = price * 1;
-                System.out.println("Odenecek Tutar: " + sizePrice + "CHF");
+                System.out.println("Small size price: " + sizePrice + "CHF");
                 break;
             case 'M':
                 sizePrice = price * 2;
-                System.out.println("Odenecek Tutar: " + sizePrice + "CHF");
+                System.out.println("Medium size price: " + sizePrice + "CHF");
                 break;
             case 'L':
                 sizePrice = price * 3;
-                System.out.println("Odenecek Tutar: " + sizePrice + "CHF");
+                System.out.println("Large size price " + sizePrice + "CHF");
                 break;
             default:
-                System.out.println("Gecersiz giris");
+                System.out.println("Invalid entry");
         }
 
-        System.out.println("Lutfen ödemeyi yapiniz");
-        double odeme = scan.nextDouble();
-        double paraUstu = 0;
-        double eksikMiktar = 0;
+        System.out.println("Please pay");
+        double payment = scan.nextDouble();
+        double change = 0;
+        double less = 0;
 
-        if (odeme >= sizePrice) {
-            paraUstu = odeme - sizePrice;
-            System.out.println("Para ustu: " + paraUstu + " CHF");
+        if (payment >= sizePrice) {
+            change = payment - sizePrice;
+            System.out.println("Your change: " + change + " CHF");
         } else {
-            eksikMiktar = sizePrice - odeme;
+            less = sizePrice - payment;
 
-            System.out.println("Yetersiz bakiye " + eksikMiktar + " CHF daha ödemeniz gerekiyor");
+            System.out.println("insufficient balance! Please pay " + less + " CHF more");
         }
 
     }
